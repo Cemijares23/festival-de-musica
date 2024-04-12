@@ -1,0 +1,46 @@
+@use 'variables' as v;
+
+// Los mixins sirven como funciones, a las cuales les puedes pasar parametros, y además pueden utilizar estructuras de control como if
+
+// @mixin heading($color, $bold: false) {
+//     text-transform: uppercase;
+//     font-size: 2.4rem;
+//     color: $color;
+//     letter-spacing: 1px;
+
+//     @if $bold {
+//         font-weight: 700;
+//     }
+// }
+
+// Los mixins tambien pueden ser utilizados para crear media queries
+
+@mixin telefono {
+    @media (min-width: v.$telefono) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+
+@mixin desktopXL {
+    @media (min-width: v.$desktopXL) {
+        @content;
+    }
+}
+
+@mixin grid($columnas, $gap) {
+    display: grid;
+    grid-template-columns: repeat($columnas, 1fr);
+    gap: $gap;
+}
